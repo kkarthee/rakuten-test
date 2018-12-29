@@ -14,18 +14,18 @@ user { 'testuser':
   password_min_age => '0',
   shell            => '/bin/bash',
 }
-#file { '/webapp/devops/app.sh':
+file { '/webapps/devops/app.sh':
 #ensure => 'present' ,
 #path => '/webapp/devops/',
 #content => '$content',
-#source => 'puppet:///modules/webapp/app.sh',
+source => 'puppet:///modules/webapp/app.sh',
 #owner  => 'testuser',
-#mode   => '0755',
-#}
-exec {'app.sh':
-command => 'cd /webapps/devops; virtualenv env; source env/bin/activate; ./app.py &',
+mode   => '0755',
+}
+exec { '/webapps/devops/app.sh':
+#command => 'cd /webapps/devops; virtualenv env; source env/bin/activate; ./app.py &',
  path => ['/usr/bin', '/usr/sbin' , '/usr/local/bin' , '/usr/local/sbin' , '/bin' , '/sbin'],
      }
 }
 
-
+ 
