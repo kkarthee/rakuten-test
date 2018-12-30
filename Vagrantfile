@@ -9,7 +9,8 @@ Vagrant.configure("2") do |config|
 
  # config.vm.box_url = "https://atlas.hashicorp.com/ubuntu/trusty64"
   config.vm.network :private_network, ip: "10.10.10.20"
-  config.vm.synced_folder "devops-challenge/" , "/webapps/devops/"
+  config.vm.synced_folder "devops-challenge/" , "/webapps/devops/",
+   owner: "appuser" , group: "www-data"
   config.vm.provider :virtualbox do |vb|
     vb.customize [
       "modifyvm", :id,
@@ -22,7 +23,7 @@ Vagrant.configure("2") do |config|
 # config.vm.provision :shell, :path => "bootstrap.sh"
 
 ###Provision Puppet as recommended   
-  config.vm.provision :puppet do |puppet|
+  config.vm.provision :puppet, run: 'always' do |puppet|
     puppet.manifests_path = "puppet/manifests"
     puppet.manifest_file = "site.pp"
     puppet.module_path = "puppet/modules"

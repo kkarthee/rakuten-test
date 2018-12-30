@@ -5,31 +5,38 @@
 # @example
 #   include webapp::app_logrotate
 class webapp::app_logrotate {
-class { '::logrotate':
-  ensure => 'latest',
-  config => {
-    dateext      => true,
-    compress     => true,
-    rotate       => 10,
-    #rotate_every => 'week',
-    maxsize         => 10000,
-    ifempty      => true,
+  package { 'logrotate':
+    ensure =>  present,
   }
+
+  file { '/var/log/nginx':
+    ensure  => directory,
+    owner   => 'testuser',
+    group   => 'www-data',
+    mode    => 755, 
+    require =>  Package['logrotate'],
+  }
+  file { '/webapps/devops/log/':
+    ensure =>  directory,
+    owner    => 'testuser',
+    group    =>  'www-data',
+    mode     => 755,
+  }
+
+ file { 'nginx_logrotate':
+   path    => '/etc/logrotate.d/nginx',
+   ensure  => file,
+   owner   => root,
+   group   => root,
+   mode   => 644,
+   source  =>  'puppet:///modules/webapp/nginx'
 }
- logrotate::rule { 'nginx':
-  path          => '/var/log/nginx/*.log',
-  rotate        => 5,
-  #mail          => 'test@example.com',
-  size          => '100k',
-  sharedscripts => true,
-  postrotate    => 'restart nginx',
-}
- logrotate::rule { 'myproject':
-  path          => '/webapp/devapps/log/*.log',
-  rotate        => 5,
-  #mail          => 'test@example.com',
-  size          => '100k',
-  sharedscripts => true,
-  postrotate    => 'restart myprojet',
+ file { 'uwsgi_logrotate':
+   path    => '/etc/logrotate.d/uwsgi',
+   ensure  => file,
+   owner   => root,
+   group   => root,
+   mode   => 644,
+   source  =>  'puppet:///modules/webapp/uwsgi'
 }
 }

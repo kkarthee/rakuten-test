@@ -13,19 +13,13 @@ class webapp::package(
   command => 'apt-get --yes update',
   path => ['/usr/bin', '/usr/sbin' , '/usr/local/bin' , '/usr/local/sbin' ,'/bin' , '/sbin'],
   } 
-  package { [ 'python3-pip', 'python-virtualenv'] :
+  package { [ 'python3-pip', 'python-virtualenv', ] :
     ensure => 'present',
     require => Exec['apt-get-update'],
   }
-  exec { 'linkfile':
-          command => 'ln -s /usr/bin/pip3 /usr/bin/pip',
-          path => ['/usr/bin', '/usr/sbin' , '/usr/local/bin' , '/usr/local/sbin' , '/bin' , '/sbin'],
-          unless => ['which pip'],
-          require => Package['python3-pip'],
-       }
-  package { ['Flask' , 'Werkzeug']:
-    ensure => 'present',
-    provider => pip,
-    require => Exec['linkfile'],
+  file { '/usr/bin/pip':
+    ensure => link ,
+    target =>  '/usr/bin/pip3',
+    require => Package['python3-pip'],
   }
 }

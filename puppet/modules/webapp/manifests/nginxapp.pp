@@ -6,7 +6,7 @@
 #   include webapp::nginxapp
 class webapp::nginxapp (
   $proj = myproject,
-  $app_port = 8000,
+  $app_port = 5000,
   $web_port = 80, 
 )
   {

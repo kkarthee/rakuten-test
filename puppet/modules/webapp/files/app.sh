@@ -1,5 +1,7 @@
 #!/bin/sh
 cd /webapps/devops
-virtualenv env
-source env/bin/activate
-./app.py &
+sudo virtualenv env
+sudo source env/bin/activate
+sudo pip install -f /webapps/devops/requirements.txt
+sudo pip install uwsgi 
+
