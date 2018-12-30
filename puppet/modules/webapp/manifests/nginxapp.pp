@@ -4,7 +4,23 @@
 #
 # @example
 #   include webapp::nginxapp
-class webapp::nginxapp {
+class webapp::nginxapp (
+  $proj = myproject,
+  $app_port = 8000,
+  $web_port = 80, 
+)
+  {
+  file { '/etc/nginx/sites-available/myproject': 
+    ensure => present ,
+    content =>  template('webapp/myproject.erb'),
+  }
+  file { '/etc/nginx/sites-available/default':
+    ensure =>  absent, 
+  }
 
+package { 'nginx':
+            ensure => present,
+            before => File['/etc/nginx/sites-available/myproject'],
+}
 
 }

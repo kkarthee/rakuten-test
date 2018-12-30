@@ -26,7 +26,7 @@ class webapp::timezone  (
             owner   => 'root',
             group   => 'root',
             mode    => '0644',
-            content => template('timezone/ubuntu.erb'),
+            content => template('webapp/ubuntu.erb'),
         }
 
 }
