@@ -1,0 +1,15 @@
+/webapps/devops/logs/*.log {
+    daily
+    missingok
+    rotate 50
+    compress
+    delaycompress
+    notifempty
+    create 660 appuser www-data
+    sharedscripts
+    dateext
+    dateformat -web01-%Y-%m-%d-%s
+    postrotate
+    restart myproject
+    endscript
+}
