@@ -10,7 +10,7 @@ Vagrant.configure("2") do |config|
  # config.vm.box_url = "https://atlas.hashicorp.com/ubuntu/trusty64"
   config.vm.network :private_network, ip: "10.10.10.20"
   config.vm.synced_folder "devops-challenge/" , "/webapps/devops/",
-   owner: "appuser" , group: "www-data", mount_options: ["uid=1001"]
+   owner: "appuser" , group: "www-data", mount_options: ["uid=10001"]
 # owner: "appuser" , group: "www-data"
   config.vm.provider :virtualbox do |vb|
     vb.customize [
