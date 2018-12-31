@@ -2,4 +2,4 @@
 *.o
 *.py[co]
 /webapps/devapps/env
-/.vagrant/
+.vagrant/
