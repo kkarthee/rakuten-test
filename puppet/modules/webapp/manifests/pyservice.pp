@@ -16,6 +16,7 @@ file { '/webapps/devops/':
 user { 'appuser':
   ensure           => 'present',
   home             => '/webapps/devops/',
+  uid              =>  1001,
   password         => '$6$YBCfxqTD$O2f7SaF7tf8HG.gLaT0Ju2.rNGH9DzuU/2smhVTRRSJ1QhVbYFKIkJLwXwwElH3JtJPAcnw8kaAdf8dCV3Dg3.',
   password_max_age => '99999',
   password_min_age => '0',
