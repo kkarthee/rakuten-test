@@ -1,0 +1,3 @@
+[submodule "devops-challenge"]
+	path = devops-challenge
+	url = https://bitbucket.org/azneita/devops-challenge.git
