@@ -11,14 +11,14 @@ class webapp::app_logrotate {
 
   file { '/var/log/nginx':
     ensure  => directory,
-    owner   => 'testuser',
+    owner   => 'appuser',
     group   => 'www-data',
     mode    => 755, 
     require =>  Package['logrotate'],
   }
   file { '/webapps/devops/log/':
     ensure =>  directory,
-    owner    => 'testuser',
+    owner    => 'appuser',
     group    =>  'www-data',
     mode     => 755,
   }
