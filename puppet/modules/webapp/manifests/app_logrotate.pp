@@ -7,6 +7,7 @@
 class webapp::app_logrotate {
   package { 'logrotate':
     ensure =>  present,
+    require =>  Class[ 'webapp::nginxapp' ],
   }
 
   file { '/var/log/nginx':
@@ -39,4 +40,5 @@ class webapp::app_logrotate {
    mode   => 644,
    source  =>  'puppet:///modules/webapp/uwsgi'
 }
+
 }

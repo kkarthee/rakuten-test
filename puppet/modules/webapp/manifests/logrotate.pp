@@ -5,7 +5,7 @@ class { '::logrotate':
     compress     => true,
     rotate       => 10,
     rotate_every => 'week',
-    size         => 10k,
+    size         => 10000,
     ifempty      => true,
   }
 }
