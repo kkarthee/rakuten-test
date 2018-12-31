@@ -1,0 +1,5 @@
+*.log
+*.o
+*.py[co]
+/webapps/devapps/env
+
