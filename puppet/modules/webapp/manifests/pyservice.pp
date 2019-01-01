@@ -25,6 +25,13 @@ user { 'appuser':
   groups           => 'sudo',
   before           =>  File[ '/webapps/devops/' ], 
 }
+file { '/webapps/devops/log':
+  ensure    => directory,
+  owner     => 'appuser',
+  group     => 'www-data',
+  #mode      => 755,
+ recurse =>  true,
+}
 file { '/etc/sudoers.d/55-myproject-users':
 ensure   => file,
 mode     => 440,

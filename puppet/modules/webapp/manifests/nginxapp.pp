@@ -24,7 +24,7 @@ package { 'nginx':
                 #before =>  Class[ 'webapp::pyservice' ],
 }
 service { 'nginx':
-  ensure  => present,
+  ensure  => running,
   require =>  Package['nginx'],
 }
 
