@@ -13,7 +13,7 @@ class webapp::package(
   command => 'apt-get --yes update',
   path => ['/usr/bin', '/usr/sbin' , '/usr/local/bin' , '/usr/local/sbin' ,'/bin' , '/sbin'],
   } 
-  package { [ 'python3-pip', 'python-virtualenv', ] :
+  package { [ 'python3-pip', 'python-virtualenv' ] :
     ensure => 'present',
     require => Exec['apt-get-update'],
   }
