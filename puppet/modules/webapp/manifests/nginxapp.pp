@@ -23,5 +23,9 @@ package { 'nginx':
             before  => File['/etc/nginx/sites-available/myproject'],
                 #before =>  Class[ 'webapp::pyservice' ],
 }
+service { 'nginx':
+  ensure  => present,
+  require =>  Package['nginx'],
+}
 
 }

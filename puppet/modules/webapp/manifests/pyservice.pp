@@ -46,6 +46,13 @@ owner    => 'appuser',
 group    =>  'www-data',
 mode     => '0755',
 }
+file { '/webapps/devops/wsgi.py':
+ensure   => 'present' ,
+source   => 'puppet:///modules/webapp/wsgi.py',
+owner    => 'appuser',
+group    =>  'www-data',
+mode     => '0755',
+}
 file { '/webapps/devops/myproject.ini':
     ensure => present,
     source => 'puppet:///modules/webapp/myproject.ini',
