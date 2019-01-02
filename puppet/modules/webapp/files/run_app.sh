@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 cd /webapps/devops
 sudo virtualenv env
 sudo source env/bin/activate
 sudo start myproject
-#sudo service nginx restart
+#sudo service nginx restart  
