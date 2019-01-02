@@ -2,5 +2,5 @@
 cd /webapps/devops
  virtualenv env
  source env/bin/activate
- start myproject
+ restart myproject
 #sudo service nginx restart  

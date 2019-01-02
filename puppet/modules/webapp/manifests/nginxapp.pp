@@ -16,11 +16,11 @@ class webapp::nginxapp (
   }
   file { '/etc/nginx/sites-enabled/myproject':
      ensure => link,
-     source => /etc/nginx/sites-available/myproject',
+     source => '/etc/nginx/sites-available/myproject',
      require => File[ '/etc/nginx/sites-available/myproject' ],
   }
   
-  file { '/etc/nginx/sites-available/default' , '/etc/nginx/sites-enabled/default'] :
+  file { ['/etc/nginx/sites-available/default' , '/etc/nginx/sites-enabled/default'] :
     ensure =>  absent, 
   }
 
