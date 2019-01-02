@@ -20,6 +20,7 @@ class webapp::package(
   package { [ 'virtualenv' , 'uwsgi'] :
   ensure => present,
   provider => pip,
+  require => Package [ ]
   }
 
  /* file { '/usr/bin/pip':
