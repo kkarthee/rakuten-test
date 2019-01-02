@@ -2,9 +2,9 @@
 cd /webapps/devops
  virtualenv env
  source env/bin/activate
- if [ -f '/tmp/myproject.sock' ];
+ if [  -e '/tmp/myproject.sock' ];
   then
-  echo " My Project is  already started and it is running"
+  restart myproject
   else
   start myproject
   fi
