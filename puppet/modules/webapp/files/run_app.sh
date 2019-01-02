@@ -8,4 +8,4 @@ cd /webapps/devops
   else
   start myproject
   fi
-#sudo service nginx restart
+  service nginx restart
