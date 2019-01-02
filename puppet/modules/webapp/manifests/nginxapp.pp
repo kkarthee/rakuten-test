@@ -15,7 +15,8 @@ class webapp::nginxapp (
     content =>  template('webapp/myproject.erb'),
   }
   file { '/etc/nginx/sites-enabled/myproject':
-     ensure => link,
+     ensure => 'link',
+     links => 'manage',
      source => '/etc/nginx/sites-available/myproject',
      require => File[ '/etc/nginx/sites-available/myproject' ],
   }
