@@ -20,7 +20,11 @@ class webapp::nginxapp (
      require => File[ '/etc/nginx/sites-available/myproject' ],
   }
   
-  file { ['/etc/nginx/sites-available/default' , '/etc/nginx/sites-enabled/default'] :
+  file { '/etc/nginx/sites-available/default':
+  ensure => absent,
+  }
+  
+  file {'/etc/nginx/sites-enabled/default':
     ensure =>  absent, 
   }
 
