@@ -13,14 +13,14 @@ class webapp::package(
   command => 'apt-get --yes update',
   path => ['/usr/bin', '/usr/sbin' , '/usr/local/bin' , '/usr/local/sbin' ,'/bin' , '/sbin'],
   } 
-  package { [ 'build-essential' , 'python-dev' , 'python-pip' ] :
+  package { [ 'build-essential' , 'python-dev' , 'python-pip' , 'python-flask'] :
     ensure => 'present',
     require => Exec['apt-get-update'],
   }
   package { [ 'virtualenv' , 'uwsgi'] :
   ensure => present,
   provider => pip,
-  require => Package [ ]
+  #require => Package [ ]
   }
 
  /* file { '/usr/bin/pip':
