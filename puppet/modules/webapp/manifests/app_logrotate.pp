@@ -7,7 +7,7 @@
 class webapp::app_logrotate {
   package { 'logrotate':
     ensure =>  present,
-    require =>  Class[ 'webapp::nginxapp' ],
+    #    require =>  Class[ 'webapp::nginxapp' ],
   }
 
   file { '/var/log/nginx':
