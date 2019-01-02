@@ -17,7 +17,7 @@ class webapp::package(
     ensure => 'present',
     require => Exec['apt-get-update'],
   }
-  package { [ 'virtualenv' , 'uwsgi']
+  package { [ 'virtualenv' , 'uwsgi'] :
   ensure => present,
   provider => pip,
   }
