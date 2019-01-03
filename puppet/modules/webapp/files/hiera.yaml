@@ -1,0 +1,7 @@
+---
+:backends:
+  - yaml
+:yaml:
+  :datadir: "/webapps/devops/hieradata"
+:hierarchy:
+  - "common"

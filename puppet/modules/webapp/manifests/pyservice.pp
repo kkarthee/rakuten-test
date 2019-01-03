@@ -6,11 +6,11 @@
 #   include webapp::pyservice
 class webapp::pyservice {
 file { '/webapps/devops/':
-  ensure    => directory, 
+  ensure    => directory,
   owner     => 'appuser',
   group     => 'www-data',
   #mode      => 755,
- recurse =>  true,
+  recurse =>  true,
   require   => User['appuser'],
 }
 user { 'appuser':
@@ -23,14 +23,14 @@ user { 'appuser':
   shell            => '/bin/bash',
   gid              => 'www-data',
   groups           => 'sudo',
-  before           =>  File[ '/webapps/devops/' ], 
+  before           =>  File[ '/webapps/devops/' ],
 }
 file { '/webapps/devops/log':
   ensure    => directory,
   owner     => 'appuser',
   group     => 'www-data',
   #mode      => 755,
- recurse =>  true,
+  recurse =>  true,
 }
 file { '/etc/sudoers.d/55-myproject-users':
 ensure   => file,
@@ -38,14 +38,14 @@ mode     => 440,
 owner    => 'root',
 group    => 'root',
 content  => 'appuser ALL=(ALL) NOPASSWD:ALL',
-} 
+}
 file { '/webapps/devops/app.sh':
 ensure   => 'present' ,
 source   => 'puppet:///modules/webapp/app.sh',
 owner    => 'appuser',
 group    =>  'www-data',
 mode     => '0755',
-} 
+}
 file { '/webapps/devops/run_app.sh':
 ensure   => 'present' ,
 source   => 'puppet:///modules/webapp/run_app.sh',
@@ -75,5 +75,3 @@ file { '/etc/init/myproject.conf':
   group  =>  'root',
 }
 }
-
- 

@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
       "modifyvm", :id,
       "--cpuexecutioncap", "50",
       "--memory", "512",
-      "--cpu", "3",
+      "--cpus", "3",
     ]
   end
   
