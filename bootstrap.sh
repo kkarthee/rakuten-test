@@ -12,4 +12,4 @@ DEB_RELEASE=$(lsb_release -c -s)
       #curl http://pm.puppetlabs.com/puppet-agent/2018.1.5/5.5.8/repos/puppet-agent-ubuntu-16.04-amd64.tar.gz -o /tmp/puppet-agent-ubuntu-16.04-amd64.tar.gz
      # gunzip /tmp/puppet-agent-ubuntu-16.04-amd64.tar.gz
       apt-get -y -m update
-sudo apt-get --yes install puppet-agent*/
+sudo apt-get --yes install puppet-agent */
