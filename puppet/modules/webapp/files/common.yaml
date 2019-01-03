@@ -1,0 +1,11 @@
+apt_packages:
+  -"build-essential"
+  -"python-dev"
+  -"python-pip"
+  -"python-flask"
+pip_packages:
+  -"virtualenv"
+  -"uwsgi"
+uwsgi_region: 'Etc'
+uwsgi_locality: 'UTC'
+uwsgi_hwutc: true

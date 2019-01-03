@@ -5,10 +5,14 @@
 # @example
 #   include webapp::pyservice
 class webapp::pyservice {
+  File {
+    owner     => 'appuser',
+    group     => 'www-data',
+  }
 file { '/webapps/devops/':
   ensure    => directory,
-  owner     => 'appuser',
-  group     => 'www-data',
+  #owner     => 'appuser',
+  #group     => 'www-data',
   #mode      => 755,
   recurse =>  true,
   require   => User['appuser'],
@@ -27,8 +31,8 @@ user { 'appuser':
 }
 file { '/webapps/devops/log':
   ensure    => directory,
-  owner     => 'appuser',
-  group     => 'www-data',
+  #owner     => 'appuser',
+  #group     => 'www-data',
   #mode      => 755,
   recurse =>  true,
 }
@@ -42,30 +46,30 @@ content  => 'appuser ALL=(ALL) NOPASSWD:ALL',
 file { '/webapps/devops/app.sh':
 ensure   => 'present' ,
 source   => 'puppet:///modules/webapp/app.sh',
-owner    => 'appuser',
-group    =>  'www-data',
+#owner    => 'appuser',
+#group    =>  'www-data',
 mode     => '0755',
 }
 file { '/webapps/devops/run_app.sh':
 ensure   => 'present' ,
 source   => 'puppet:///modules/webapp/run_app.sh',
-owner    => 'appuser',
-group    =>  'www-data',
+#owner    => 'appuser',
+#group    =>  'www-data',
 mode     => '0755',
 }
 file { '/webapps/devops/wsgi.py':
 ensure   => 'present' ,
 source   => 'puppet:///modules/webapp/wsgi.py',
-owner    => 'appuser',
-group    =>  'www-data',
+#owner    => 'appuser',
+#group    =>  'www-data',
 mode     => '0755',
 }
 file { '/webapps/devops/myproject.ini':
     ensure => present,
     source => 'puppet:///modules/webapp/myproject.ini',
     mode  => 0644,
-    owner  => 'appuser',
-    group  =>  'www-data',
+    #owner  => 'appuser',
+    #group  =>  'www-data',
 }
 file { '/etc/init/myproject.conf':
   ensure =>  present,

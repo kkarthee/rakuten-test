@@ -14,31 +14,31 @@ class webapp::app_logrotate {
     ensure  => directory,
     owner   => 'appuser',
     group   => 'www-data',
-    mode    => 755, 
+    mode    => '0755',
     require =>  Package['logrotate'],
   }
   #  file { '/webapps/devops/log/':
   # ensure =>  directory,
   # owner    => 'appuser',
-   #group    =>  'www-data',
-   #mode     => 755,
-   #}
+  #group    =>  'www-data',
+  #mode     => 755,
+  #}
 
- file { 'nginx_logrotate':
-   path    => '/etc/logrotate.d/nginx',
-   ensure  => file,
-   owner   => root,
-   group   => root,
-   mode   => 644,
-   source  =>  'puppet:///modules/webapp/nginx'
+file { 'nginx_logrotate':
+    path    => '/etc/logrotate.d/nginx',
+    ensure  => file,
+    owner   => root,
+    group   => root,
+    mode   => 644,
+    source  =>  'puppet:///modules/webapp/nginx'
 }
- file { 'uwsgi_logrotate':
-   path    => '/etc/logrotate.d/uwsgi',
-   ensure  => file,
-   owner   => root,
-   group   => root,
-   mode   => 644,
-   source  =>  'puppet:///modules/webapp/uwsgi'
+file { 'uwsgi_logrotate':
+    path    => '/etc/logrotate.d/uwsgi',
+    ensure  => file,
+    owner   => root,
+    group   => root,
+    mode   => 644,
+    source  =>  'puppet:///modules/webapp/uwsgi'
 }
 
 }
