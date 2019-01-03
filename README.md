@@ -1,4 +1,4 @@
-##Test Case ##
+##Test Case
 
 **Download this Git repositroy and bring up VM :** 
 
@@ -12,11 +12,12 @@ curl 10.10.10.20
 
 **From remote server or Server where virtual server installed (Should have network access to VM)**  : *curl http://10.10.10.20*
 
-Example : 
+##Execution Report 
 
 *Karthikeyan:finalrelease karthikeyan.kanagaraj$ git clone --recursive git@github.com:kkarthee/rakuten-test.git*
 
->Cloning into 'rakuten-test'...
+```
+Cloning into 'rakuten-test'...
 remote: Enumerating objects: 109, done.
 remote: Counting objects: 100% (109/109), done.
 remote: Compressing objects: 100% (63/63), done.
@@ -29,6 +30,7 @@ remote: Counting objects: 6, done.
 remote: Compressing objects: 100% (5/5), done.
 remote: Total 6 (delta 0), reused 0 (delta 0)
 Submodule path 'devops-challenge': checked out 'e62b3527b4a7b0256ec0e05666e2c8d3be5495d1'
+```
 
 *Karthikeyan:finalrelease karthikeyan.kanagaraj$ pwd*
 >/Users/karthikeyan.kanagaraj/tickets/rakuten/finaltest/finalrelease
