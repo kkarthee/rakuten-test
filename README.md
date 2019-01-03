@@ -4,6 +4,7 @@
 
 ```
 git clone --recursive git@github.com:kkarthee/rakuten-test.git
+cd rakuten-test
 vagrant up
 vagrant ssh 
 curl rakuten
