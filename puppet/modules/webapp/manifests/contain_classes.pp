@@ -5,6 +5,7 @@
 # @example
 #   include webapp::contain_classes
 class webapp::contain_classes {
+contain webapp::hiera_values
 contain webapp::timezone
 contain webapp::package
 contain webapp::pyservice
@@ -12,7 +13,8 @@ contain webapp::nginxapp
 contain webapp::myproject
 contain webapp::app_logrotate
 
-Class['webapp::timezone']
+Class['lass webapp::hiera_values']
+-> Class['webapp::timezone']
 -> Class['webapp::package']
 -> Class['webapp::pyservice']
 -> Class['webapp::nginxapp']
