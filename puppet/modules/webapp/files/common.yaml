@@ -6,6 +6,9 @@ apt_packages:
 pip_packages:
   -"virtualenv"
   -"uwsgi"
-uwsgi_region: 'Etc'
-uwsgi_locality: 'UTC'
-uwsgi_hwutc: true
+uwsgi_region: 
+  -"Etc"
+uwsgi_locality: 
+  -"UTC"
+uwsgi_hwutc: 
+   -"true"
