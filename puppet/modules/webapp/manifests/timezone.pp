@@ -8,9 +8,9 @@ class webapp::timezone  (
 # $region   = $uwsgi_region,
 # $locality = $uwsgi_locality,
 #  $hwutc    = $uwsgi_hwutc,
-region = Etc,
-locality = UTC,
-hwutc = 'true',
+$region = Etc,
+$locality = UTC,
+$hwutc = 'true',
 )
 {
   file { '/etc/localtime':
