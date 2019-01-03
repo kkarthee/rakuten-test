@@ -5,9 +5,9 @@
 # @example
 #   include webapp::timezone
 class webapp::timezone  (
-  $region   = 'Etc',
-  $locality = 'UTC',
-  $hwutc    = true
+  $region   = $uwsgi_region,
+  $locality = $uwsgi_locality,
+  $hwutc    = $uwsgi_hwutc,
 )
 {
   file { '/etc/localtime':
