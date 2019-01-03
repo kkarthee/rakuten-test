@@ -13,7 +13,7 @@ contain webapp::nginxapp
 contain webapp::myproject
 contain webapp::app_logrotate
 
-Class['lass webapp::hiera_values']
+Class[ 'webapp::hiera_values']
 -> Class['webapp::timezone']
 -> Class['webapp::package']
 -> Class['webapp::pyservice']
