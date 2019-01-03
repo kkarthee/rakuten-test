@@ -18,10 +18,10 @@ class webapp::timezone  (
     group   => 'root',
     mode    => '0644',
   }
-   package { 'tzdata':
+  package { 'tzdata':
             ensure => present,
             before => File['/etc/localtime'],
-   }
+  }
     file { '/etc/timezone':
             owner   => 'root',
             group   => 'root',
