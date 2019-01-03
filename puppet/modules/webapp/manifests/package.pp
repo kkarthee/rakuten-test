@@ -6,26 +6,26 @@
 #   include webapp::package
 class webapp::package(
   #$packages-pip = [ 'Flask' , 'Werkzeug' , 'python-virtualenv' ],
-  #$packages_apt = [ "build-essential", "python-dev" , "python-pip" , "python-flask" ],
-  $packages_apt = $apt_packages,
-  $packages_pip = $pip_packages,
+  $packages_apt = [ 'build-essential', 'python-dev' , 'python-pip' , 'python-flask' ],
+  #$packages_apt = $apt_packages,
+  $packages_pip = [ 'virtualenv' , 'uwsgi' ],
 )
 {
   exec { 'apt_get_update':
   command => 'apt-get --yes update',
-  path => ['/usr/bin', '/usr/sbin' , '/usr/local/bin' , '/usr/local/sbin' ,'/bin' , '/sbin'],
+  path    => ['/usr/bin', '/usr/sbin' , '/usr/local/bin' , '/usr/local/sbin' ,'/bin' , '/sbin'],
   }
   package {  $packages_apt:
   #  name => $packages-apt:
-    ensure => 'present',
+    ensure   => 'present',
     provider => 'apt',
-    require => Exec['apt_get_update'],
+    require  => Exec['apt_get_update'],
   }
   #package { [ 'virtualenv' , 'uwsgi'] :
   package { $packages_pip:
-  ensure => present,
+  ensure   => present,
   provider => pip,
-  require => Package[ $packages_apt ],
+  require  => Package[ $packages_apt ],
   }
 
 /* file { '/usr/bin/pip':

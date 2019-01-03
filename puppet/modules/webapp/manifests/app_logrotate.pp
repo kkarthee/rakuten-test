@@ -7,7 +7,6 @@
 class webapp::app_logrotate {
   package { 'logrotate':
     ensure =>  present,
-    #    require =>  Class[ 'webapp::nginxapp' ],
   }
 
   file { '/var/log/nginx':
@@ -25,20 +24,20 @@ class webapp::app_logrotate {
   #}
 
 file { 'nginx_logrotate':
-    path    => '/etc/logrotate.d/nginx',
-    ensure  => file,
-    owner   => root,
-    group   => root,
-    mode   => 644,
-    source  =>  'puppet:///modules/webapp/nginx'
+    ensure => 'file',
+    path   => '/etc/logrotate.d/nginx',
+    owner  => root,
+    group  => root,
+    mode   => '0644',
+    source =>  'puppet:///modules/webapp/nginx'
 }
 file { 'uwsgi_logrotate':
-    path    => '/etc/logrotate.d/uwsgi',
-    ensure  => file,
-    owner   => root,
-    group   => root,
-    mode   => 644,
-    source  =>  'puppet:///modules/webapp/uwsgi'
+    ensure => file,
+    path   => '/etc/logrotate.d/uwsgi',
+    owner  => root,
+    group  => root,
+    mode   => '0644',
+    source => 'puppet:///modules/webapp/uwsgi'
 }
 
 }

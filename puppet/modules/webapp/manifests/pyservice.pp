@@ -10,12 +10,12 @@ class webapp::pyservice {
     group     => 'www-data',
   }
 file { '/webapps/devops/':
-  ensure    => directory,
+  ensure  => directory,
   #owner     => 'appuser',
   #group     => 'www-data',
   #mode      => 755,
   recurse =>  true,
-  require   => User['appuser'],
+  require => User['appuser'],
 }
 user { 'appuser':
   ensure           => 'present',
@@ -30,25 +30,25 @@ user { 'appuser':
   before           =>  File[ '/webapps/devops/' ],
 }
 file { '/webapps/devops/log':
-  ensure    => directory,
+  ensure  => directory,
   #owner     => 'appuser',
   #group     => 'www-data',
   #mode      => 755,
   recurse =>  true,
 }
 file { '/etc/sudoers.d/55-myproject-users':
-ensure   => file,
-mode     => 440,
-owner    => 'root',
-group    => 'root',
-content  => 'appuser ALL=(ALL) NOPASSWD:ALL',
+ensure  => file,
+mode    => '0440',
+owner   => 'root',
+group   => 'root',
+content => 'appuser ALL=(ALL) NOPASSWD:ALL',
 }
 file { '/webapps/devops/app.sh':
-ensure   => 'present' ,
-source   => 'puppet:///modules/webapp/app.sh',
+ensure => 'present' ,
+source => 'puppet:///modules/webapp/app.sh',
 #owner    => 'appuser',
 #group    =>  'www-data',
-mode     => '0755',
+mode   => '0755',
 }
 file { '/webapps/devops/run_app.sh':
 ensure => 'present' ,
