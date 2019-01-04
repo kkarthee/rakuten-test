@@ -2,7 +2,7 @@
 
 ### *For this excersie, I had some assumptions and this module is tested with these assumptions. If your environment has any other changes we need to modify puppet module ``webapp`` according to your infrastructure.* 
 
-**1. Ubuntu 14.04**
+**1. Ubuntu 14.04 and virtualbox as default provider. Image willbe download from https://vagrantcloud.com/ubuntu/boxes/trusty64/versions/20181207.0.2/providers/virtualbox.box**
 
 **2. Firewall ports are open for installing packages. ( No local repository, all packages are installed from default repositries )**
 
