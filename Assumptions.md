@@ -25,3 +25,6 @@
 **11. Application ``threads`` ``process`` ``workers`` ``cpu-affinity`` all can be modified according to your requirement. If you want to modify please modify ``puppet's`` webapp module. (File name myproject.ini)**
 
 **12. All tested on MAC book with VirtualBox and assigned 3 cpu and 512 memory.**
+
+**13. ``uwsgitop`` and stat-server are used to test load was tested using the command ``ab -n 100000 -c 500  http://10.10.10.20/`` and looks requests are spreaded and sent all 3 cpus.**
+ 
