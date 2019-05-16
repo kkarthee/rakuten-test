@@ -8,7 +8,8 @@ class webapp::package(
   #$packages-pip = [ 'Flask' , 'Werkzeug' , 'python-virtualenv' ],
   $packages_apt = [ 'build-essential', 'python-dev' , 'python-pip' , 'python-flask' ],
   #$packages_apt = $apt_packages,
-  $packages_pip = [ 'virtualenv' , 'uwsgi' , 'uwsgitop' ],
+  #$packages_pip = [ 'virtualenv' , 'uwsgi' , 'uwsgitop' ],
+  $packages_pip = [ 'virtualenv' , 'uwsgi'],
 )
 {
   exec { 'apt_get_update':
