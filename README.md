@@ -21,7 +21,7 @@ curl 10.10.10.20
 Cloning into 'rakuten-test'...
 remote: Enumerating objects: 109, done.
 remote: Counting objects: 100% (109/109), done.
-remote: Compressing objects: 100% (63/63), done.
+remote: Co666777mpressing objects: 100% (63/63), done.
 remote: Total 1847 (delta 54), reused 83 (delta 33), pack-reused 1738
 Receiving objects: 100% (1847/1847), 5.92 MiB | 2.19 MiB/s, done.
 Resolving deltas: 100% (669/669), done.
